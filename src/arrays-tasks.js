@@ -85,7 +85,7 @@ function findAllOccurrences(arr, item) {
   let qty = 0;
   arr.every((el) => {
     if (el === item) qty += 1;
-    return 1;
+    return true;
   });
   return qty;
 }
@@ -137,10 +137,15 @@ function getStringsLength(arr) {
  *   getAverage([ 1, 10, 100, 1000 ])  => 277,75
  *   getAverage([ 2, 3, 3 ])  => 2,67
  */
-function getAverage(/* arr */) {
-  throw new Error('Not implemented');
+function getAverage(arr) {
+  if (!arr.length) return 0;
+  const initialValue = 0;
+  const sum = arr.reduce(
+    (accumulator, currentValue) => accumulator + currentValue,
+    initialValue
+  );
+  return Math.round((sum / arr.length) * 100) / 100;
 }
-
 /**
  * Checks if all strings in an array have the same length.
  *

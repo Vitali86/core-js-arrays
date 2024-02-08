@@ -392,10 +392,14 @@ function generateOdds(len) {
  *   getElementByIndices(['one','two','three'], [2]) => 'three'  (arr[2])
  *   getElementByIndices([[[ 1, 2, 3]]], [ 0, 0, 1 ]) => 2        (arr[0][0][1])
  */
-function getElementByIndices(/* arr, indices */) {
-  throw new Error('Not implemented');
+function getElementByIndices(arr, indices) {
+  const initialValue = 0;
+  const index = indices.reduce(
+    (accumulator, currentValue) => accumulator + currentValue,
+    initialValue
+  );
+  return arr.flat(Number.MAX_SAFE_INTEGER)[index];
 }
-
 /**
  * Returns the number of all falsy values in the specified array.
  *
